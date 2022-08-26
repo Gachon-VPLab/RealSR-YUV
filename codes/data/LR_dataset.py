@@ -24,7 +24,8 @@ class LRDataset(data.Dataset):
         LR_path = self.paths_LR[index]
         img_LR = util.read_img(self.LR_env, LR_path)
         H, W, C = img_LR.shape
-
+        
+        '''
         # change color space if necessary
         if self.opt['color']:
             img_LR = util.channel_convert(C, self.opt['color'], [img_LR])[0]
@@ -32,6 +33,8 @@ class LRDataset(data.Dataset):
         # BGR to RGB, HWC to CHW, numpy to tensor
         if img_LR.shape[2] == 3:
             img_LR = img_LR[:, :, [2, 1, 0]]
+        ''' 
+        
         img_LR = torch.from_numpy(np.ascontiguousarray(np.transpose(img_LR, (2, 0, 1)))).float()
 
         return {'LQ': img_LR, 'LQ_path': LR_path}
