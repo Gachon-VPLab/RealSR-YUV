@@ -1,0 +1,6 @@
+yuv: # for create yuv dataset...
+  onec: # one channel
+    source: '../../Datasets_original/Source_noisy/YCbCr/Corrupted_tr_x/V'
+    target: '../../Datasets_original/Target/YCbCr/BVI-DVC/V'
+datasets:
+  yuv: '../../Datasets_generated/YUV/BVI-FlickrN_V'
